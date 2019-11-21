@@ -25,3 +25,11 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+Artsy Token
+{
+"type":"xapp_token",
+"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsInN1YmplY3RfYXBwbGljYXRpb24iOiI1ZGQ1ZTE2M2ExMGJkNjAwMTFjNDY3YmMiLCJleHAiOjE1NzQ5MDcwNDgsImlhdCI6MTU3NDMwMjI0OCwiYXVkIjoiNWRkNWUxNjNhMTBiZDYwMDExYzQ2N2JjIiwiaXNzIjoiR3Jhdml0eSIsImp0aSI6IjVkZDVmMjI4ZTQzNmQ0MDAxMjM4ZGQ0NCJ9.8rrFHoSOd6HJGjv8fSfpEc766UUTaGBJ_0NnzTMT4m4",
+"expires_at":"2019-11-28T02:10:48+00:00",
+"_links"
+}
