@@ -8,12 +8,13 @@ export default class Login extends Component {
       <div>
         <form>
           <div>
+            <label htmlFor="username">Email: </label>
             <input type="text" name="username" placeholder="Username" />
-            <label htmlFor="username">Username</label>
           </div>
           <div>
+            <label htmlFor="password">Password: </label>
             <input type="password" name="password" placeholder="Password" />
-            <label htmlFor="password">Password</label>
+
           </div>
           <input type="submit" value="Login" />
         </form>
