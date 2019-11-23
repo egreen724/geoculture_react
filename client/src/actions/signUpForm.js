@@ -19,13 +19,10 @@ const addUserFailure = error => ({
 
 export const addUser = ({user}) => {
   return dispatch => {
-    dispatch(addUserStarted())
-    fetch('http://localhost:3001/api/user.json', {method: 'post'})
-      .then(response => {
-        return response.json()
-      })
-      .then(responseJSON => {
-        console.log(responseJSON)
-      })
+    dispatch({type: "ADD_USER_STARTED"});
+    fetch('http://localhost:3001/api/users.json', {method: 'post', mode: 'no-cors'})
+    .then(response => { response.json()})
+    .then(user => {dispatch({ type: 'ADD_USER_SUCCESS', user: user })
+        })
+      };
   }
-}

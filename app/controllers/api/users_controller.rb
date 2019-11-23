@@ -15,11 +15,11 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  # def index
-  #     @lists = List.order(:id)
-  #
-  #     render json: @lists
-  #   end
+  def index
+      @users = User.all
+
+      render json: @users
+    end
 
   # def update
   #     if @list.update(list_params)

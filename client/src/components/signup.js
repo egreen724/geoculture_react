@@ -21,7 +21,7 @@ class SignUp extends Component {
   }
 
   addNewUser = user => {
-    fetch('http://localhost:3001/api/user.json').post({user})
+    fetch('http://localhost:3001/api/users.json').post({user})
       .then(response => {
         return response.json()
       })
@@ -35,7 +35,7 @@ class SignUp extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.addUser(this.state)
-    debugger;
+
   }
 
   render() {
