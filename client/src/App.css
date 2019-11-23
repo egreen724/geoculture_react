@@ -2,13 +2,9 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
 .App-header {
   background-color: white;
-  min-height: 100vh;
+  min-height: 50px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -16,6 +12,7 @@
   font-size: calc(10px + 2vmin);
   color: black;
   display: block;
+  padding-bottom: 30px;
 }
 
 .App-link {

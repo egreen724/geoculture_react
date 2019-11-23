@@ -5,19 +5,22 @@ import Menu from '../components/menu'
 const headerStyle = {
   display: 'inline',
   height: '50px',
+  width: '100%',
   clear: 'both',
   padding: '10px',
   display: 'flex',
-  flex_direction: 'row'
+  flex_direction: 'row',
+  background: "white"
 }
+
+
 
 class HeadingContainer extends Component {
 
   render() {
     return (
       <div style={headerStyle}>
-        <img style={headerStyle} src={logo} alt="logo"/>
-        <h1> GeoCulture </h1>
+        <img src={logo} alt="logo"/>
         <Menu style={headerStyle}/>
       </div>
     )
