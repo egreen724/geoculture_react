@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import '../App.css';
+import {addUser} from '../actions/signUpForm'
 
 class SignUp extends Component {
 
@@ -17,13 +18,23 @@ class SignUp extends Component {
       [name]: value
     }
     this.setState(formInfo)
+  }
+
+  addNewUser = user => {
+    fetch('http://localhost:3001/api/user.json').post({user})
+      .then(response => {
+        return response.json()
+      })
+      .then(responseJSON => {
+        console.log(responseJSON)
+      })
 
   }
 
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state)
+    this.props.addUser(this.state)
     debugger;
   }
 
@@ -57,11 +68,12 @@ class SignUp extends Component {
 
 };
 
-const mapStateToProps = state => {
+const mapDispatchToProps = dispatch => {
   return {
-    formInfo: this.state.formInfo
+    addUser: user => {dispatch(addUser(user))}
   }
 }
 
-export default connect()(SignUp);
+
+export default connect(null, mapDispatchToProps)(SignUp);
 // export default connect(mapStateToProps, { updateSignupForm, signup })(Signup)
