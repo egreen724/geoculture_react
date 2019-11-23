@@ -57,3 +57,11 @@ input {
 .suggestions li:not(:last-of-type) {
   border-bottom: 1px solid #999;
 }
+
+.form {
+  padding: 5px;
+}
+
+.form form {
+  align-items: left;
+}
