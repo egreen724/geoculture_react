@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {Provider} from 'react-redux'
-import {createStore} from 'redux'
+import {createStore, applyMiddleware} from 'redux'
 import manageUsers from './reducers/manageUser'
+import thunk from 'redux-thunk'
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(manageUsers)
+const store = createStore(manageUsers, applyMiddleware(thunk))
 
 ReactDOM.render(
   <Provider store={store}>
