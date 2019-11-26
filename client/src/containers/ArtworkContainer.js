@@ -15,8 +15,8 @@ class ArtworkContainer extends Component {
         "Munich",
         "Prague"
       ]}
-    />
-    <Artworks />
+      />
+      <Artworks />
       </div>
     )
   }
