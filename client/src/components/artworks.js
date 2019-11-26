@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import artCard from "./artCard.js"
+import ArtCard from "./artCard.js"
 
 let artworks = []
 
@@ -9,14 +9,10 @@ export default class Artworks extends Component {
   }
 
   renderArtworks = () => {
-    debugger;
-    this.setState({
-      artworks: artworks
-    })
-    debugger;
     this.state.artworks.map(work =>
-      <h3> work.title, work.category </h3>
+      <ArtCard key={work.id} work={work}/>
     )
+    debugger;
   }
 
 
@@ -24,7 +20,6 @@ export default class Artworks extends Component {
     return (
       <div>
         {this.renderArtworks()}
-
       </div>
     );
   }
@@ -37,9 +32,12 @@ export default class Artworks extends Component {
       } })
       .then(response => response.json())
       .then(data => {
-        debugger;
         artworks = data._embedded.artworks
+        this.setState({
+          artworks: artworks
+        })
       })
+    this.renderArtworks()
     }
 
 };

@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { Component } from 'react';
 
-function artCard(props) {
 
-  return (
-    <div>
+class ArtCard extends Component {
 
-    </div>
-  )
+  render() {
+    debugger;
+    const { artwork } = this.props;
+    debugger;
+    return (
+      <div>
+        <p> art test </p>
+        <li> {artwork.title}, {artwork.category} </li>
+      </div>
+    )
+  }
+
+
 }
+
+export default ArtCard;
