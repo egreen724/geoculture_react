@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Autocomplete from "../components/autocomplete";
-
+import Artworks from '../components/artworks'
 
 class ArtworkContainer extends Component {
 
@@ -16,6 +16,7 @@ class ArtworkContainer extends Component {
         "Prague"
       ]}
     />
+    <Artworks />
       </div>
     )
   }
