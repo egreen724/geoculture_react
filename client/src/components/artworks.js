@@ -9,10 +9,9 @@ export default class Artworks extends Component {
   }
 
   renderArtworks = () => {
-    this.state.artworks.map(work =>
-      <ArtCard key={work.id} work={work}/>
-    )
-    debugger;
+    if (this.state.artworks !== []) {
+      return <ArtCard art={this.state.artworks}/>
+    }
   }
 
 
@@ -33,11 +32,12 @@ export default class Artworks extends Component {
       .then(response => response.json())
       .then(data => {
         artworks = data._embedded.artworks
+        console.log(artworks)
         this.setState({
           artworks: artworks
         })
       })
-    this.renderArtworks()
+
     }
 
 };
