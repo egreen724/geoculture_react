@@ -33,22 +33,6 @@ class Menu extends Component {
               color: 'grey'
             }}
           >About</NavLink>
-          <NavLink
-            to="/login"
-            exact
-            style={link}
-            activeStyle={{
-              color: 'grey'
-            }}
-          >Login</NavLink>
-          <NavLink
-            to="/signup"
-            exact
-            style={link}
-            activeStyle={{
-              color: 'grey'
-            }}
-          >Sign Up</NavLink>
         </div>
 
     )
