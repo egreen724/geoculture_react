@@ -65,3 +65,49 @@ input {
 .form form {
   align-items: left;
 }
+
+.container {
+  position: relative;
+  width: auto;
+  float: left;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  width: auto;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: grey;
+}
+
+.container:hover .overlay {
+  opacity: .5;
+}
+
+.textOverlay {
+  color: white;
+  font-size: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.image {
+  width: auto;
+  height: auto;
+  padding: 5px;
+}
+
+.center {
+  margin: auto;
+  width: 90%;
+}

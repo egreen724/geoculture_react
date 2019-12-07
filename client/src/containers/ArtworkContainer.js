@@ -6,7 +6,7 @@ class ArtworkContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="center">
       <Autocomplete suggestions={[
         "Berlin",
         "Paris",
