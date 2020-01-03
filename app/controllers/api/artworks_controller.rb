@@ -1,24 +1,24 @@
-class Api::UsersController < ApplicationController
+class Api::ArtworksController < ApplicationController
 
   def show
-    @user = User.find(params[:id])
-    render json: @user
+    @artwork = Artwork.find(params[:id])
+    render json: @artwork
   end
 
   def create
-    @user = User.new(user_params)
+    @artwork = Artwork.new(artwork_params)
 
-    if @user.save
-      render json: @user, status: :created
+    if @artwork.save
+      render json: @artwork, status: :created
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: @artwork.errors, status: :unprocessable_entity
     end
   end
 
   def index
-      @users = User.all
+      @artworks = Artwork.all
 
-      render json: @users
+      render json: @artworks
     end
 
   # def update
@@ -41,8 +41,8 @@ class Api::UsersController < ApplicationController
 
   private
 
-  def user_params
-    params.require(:user).permit(:name, :email, :password_digest)
+  def artwork_params
+    params.require(:artwork).permit(:title, :artist, :medium, :year, :collecting_institution, :location, :image_url, :thumbnail_url, :favorite)
   end
 
 
