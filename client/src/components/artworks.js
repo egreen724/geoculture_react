@@ -32,7 +32,6 @@ export default class Artworks extends Component {
       .then(response => response.json())
       .then(data => {
         artworks = data._embedded.artworks
-        console.log(artworks)
         this.setState({
           artworks: artworks
         })

@@ -18,7 +18,8 @@ function App() {
         <Route exact path="/about" component={About} />
         <Route exact path="/mylist" component={MyList} />
         <div className="body">
-          <ArtworkContainer/>
+          <Route exact path="/" component={ArtworkContainer} />
+
         </div>
       </div>
 

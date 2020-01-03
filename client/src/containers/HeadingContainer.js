@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import {logo} from '../GeoCulture.png'
 import Menu from '../components/menu'
 
 const headerStyle = {
-  display: 'inline',
+
   height: '75px',
   width: '100%',
   clear: 'both',
@@ -13,9 +12,7 @@ const headerStyle = {
   background: "white"
 }
 
-const logoStyle = {
-  height: '75px'
-}
+
 
 
 
@@ -23,8 +20,8 @@ class HeadingContainer extends Component {
 
   render() {
     return (
-      <div style={headerStyle}>
-        <img style={logoStyle} src='https://i.imgur.com/GFDLdza.png' alt="logo"/>
+      <div >
+        <img className="logoStyle" src='https://i.imgur.com/GFDLdza.png' alt="logo"/>
         <Menu style={headerStyle}/>
       </div>
     )

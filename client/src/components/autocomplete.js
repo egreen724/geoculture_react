@@ -134,7 +134,7 @@ class Autocomplete extends Component {
       } else {
         suggestionsListComponent = (
           <div class="no-suggestions">
-            <em>No suggestions, you're on your own!</em>
+            <em>No cities match your request in our database.</em>
           </div>
         );
       }
