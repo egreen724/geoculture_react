@@ -4,7 +4,7 @@ const ArtCard = props => {
 
   const art = props.art.map((work, index) => {
       return <div key={index} className='container'>
-        <img className="image" src={work._links.thumbnail.href}/>
+        <img className="image" src={work.thumbnail}/>
         <div className='overlay'>
           <div className='textOverlay'>
             {work.title}, {work.collecting_institution}

@@ -3,12 +3,12 @@ export default function manageArt(state = {
 }, action){
 
   switch (action.type) {
-      case "ADD_ARTWORK":
+      case "SAVE_ARTWORK":
         return {
           ...state,
           artworks: []
         };
-    
+
       default:
         return state;
     }

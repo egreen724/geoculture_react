@@ -7,15 +7,15 @@ class Api::ArtworksController < ApplicationController
     render json: @artwork
   end
 
-  def create
-    @artwork = Artwork.new(artwork_params)
-
-    if @artwork.save
-      render json: @artwork, status: :created
-    else
-      render json: @artwork.errors, status: :unprocessable_entity
-    end
-  end
+  # def create
+  #   @artwork = Artwork.new(artwork_params)
+  # 
+  #   if @artwork.save
+  #     render json: @artwork, status: :created
+  #   else
+  #     render json: @artwork.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   def index
     @artworks = Artwork.all
@@ -51,7 +51,7 @@ class Api::ArtworksController < ApplicationController
 
     art_hash.each do |artwork, index|
 
-      if artwork["collecting_institution"].contails(",")
+      if artwork["collecting_institution"].include? ","
         museum = artwork["collecting_institution"].split(',')[0]
         city = artwork["collecting_institution"].split(',')[1].strip
       else
