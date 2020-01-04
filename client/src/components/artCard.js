@@ -1,10 +1,10 @@
 import React from 'react';
 
 const ArtCard = props => {
-
+  
   const art = props.art.map((work, index) => {
       return <div key={index} className='container'>
-        <img className="image" src={work.thumbnail}/>
+        <img className="image" src={work.thumbnail_url}/>
         <div className='overlay'>
           <div className='textOverlay'>
             {work.title}, {work.collecting_institution}

@@ -1,6 +1,6 @@
 export default const artworkService = {
   fetchArtworks() {
-    return return fetch('/api/v1/artworks')
+    return return fetch('http://localhost:3001/api/artworks')
       .then(response => response.json())
   }
 }

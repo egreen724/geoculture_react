@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ArtCard from "./artCard.js"
-import ArtworkService from "./services/ArtworkService.js"
+// import artworkService from "./services/ArtworkService.js"
 
 let artworks = []
 
@@ -25,8 +25,14 @@ export default class Artworks extends Component {
   }
 
   componentDidMount() {
-    ArtworkService.fetchArtworks().then(artworks => this.setState(artworks: artworks))
-
+    fetch('http://localhost:3001/api/artworks')
+      .then(response => response.json())
+      .then(data => {
+        artworks = data
+        this.setState({
+          artworks: artworks
+        })
+      })
     }
 
 };
