@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {Provider} from 'react-redux'
-import {createStore, applyMiddleware} from 'redux'
+import {createStore, applyMiddleware, compose} from 'redux'
 import manageArt from './reducers/artreducer'
 import thunk from 'redux-thunk'
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(manageArt, applyMiddleware(thunk))
+
+const composeEnhancer = window._REDUX_DEVTOOLS_EXTENSION_COMPOSE_ || compose;
+
+const store = createStore(manageArt, composeEnhancer(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <Provider store={store}>
@@ -16,7 +19,6 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+// Can create store in its own file to clean this up later
+
 serviceWorker.unregister();
