@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_07_171930) do
+ActiveRecord::Schema.define(version: 2020_01_04_194624) do
 
   create_table "artworks", force: :cascade do |t|
     t.string "title"
@@ -21,7 +21,9 @@ ActiveRecord::Schema.define(version: 2019_12_07_171930) do
     t.string "location"
     t.string "image_url"
     t.string "thumbnail_url"
-    t.boolean "favorite"
+    t.boolean "favorite", default: false
+    t.string "slug"
+    t.string "artsy_id"
   end
 
 end

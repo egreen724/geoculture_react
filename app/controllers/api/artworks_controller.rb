@@ -50,17 +50,24 @@ class Api::ArtworksController < ApplicationController
     art_hash = resp_body["_embedded"]['artworks']
 
     art_hash.each do |artwork, index|
-      museum = artwork["collecting_institution"].split(',')[0]
-      city = artwork["collecting_institution"].split(',')[1].strip
 
-      Artwork.new(
+      if artwork["collecting_institution"].contails(",")
+        museum = artwork["collecting_institution"].split(',')[0]
+        city = artwork["collecting_institution"].split(',')[1].strip
+      else
+        city = "Unknown"
+      end
+
+      Artwork.create(
         title: artwork["title"],
         medium: artwork["medium"],
         year: artwork["date"],
         collecting_institution: museum,
         location: city,
         image_url: artwork["_links"]["image"]["href"],
-        thumbnail_url: artwork["_links"]["thumbnail"]["href"]
+        thumbnail_url: artwork["_links"]["thumbnail"]["href"],
+        slug: artwork["id"],
+        artsy_id: artwork["slug"]
       )
 
     end
