@@ -1,5 +1,3 @@
-require 'pry'
-
 class Api::ArtworksController < ApplicationController
 
   def show
@@ -9,7 +7,7 @@ class Api::ArtworksController < ApplicationController
 
   # def create
   #   @artwork = Artwork.new(artwork_params)
-  # 
+  #
   #   if @artwork.save
   #     render json: @artwork, status: :created
   #   else
