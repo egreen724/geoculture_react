@@ -10,12 +10,12 @@ class ArtworkContainer extends Component {
     cities: []
   }
 
+// Use redux to send the location from autocomplete to Artworks as a prop (sibling components)
   render() {
     return (
       <div className="center">
-      <Autocomplete suggestions={this.state.cities}
-      />
-      <Artworks />
+        <Autocomplete suggestions={this.state.cities}/>
+        <Artworks />
       </div>
     )
   }

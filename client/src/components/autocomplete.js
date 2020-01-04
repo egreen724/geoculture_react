@@ -120,13 +120,17 @@ class Autocomplete extends Component {
               }
 
               return (
-                <li
-                  className={className}
-                  key={suggestion}
-                  onClick={onClick}
-                >
-                  {suggestion}
-                </li>
+                <div>
+                  <li
+                    className={className}
+                    key={suggestion}
+                    onClick={onClick}
+                  >
+                    {suggestion}
+                  </li>
+
+                </div>
+
               );
             })}
           </ul>
@@ -141,7 +145,7 @@ class Autocomplete extends Component {
     }
 
     return (
-      <Fragment>
+      <div>
         <h2>Where to?</h2>
         <input
           type="text"
@@ -150,7 +154,9 @@ class Autocomplete extends Component {
           value={userInput}
         />
         {suggestionsListComponent}
-      </Fragment>
+        <br></br>
+        <button>Search</button>
+      </div>
     );
   }
 }
