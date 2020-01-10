@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import '../App.css';
 
 
-// add state to call API based on City Search
+let userSelection = ""
 
 class Autocomplete extends Component {
   static propTypes = {
@@ -55,12 +55,16 @@ class Autocomplete extends Component {
   // Event fired when the user clicks on a suggestion
   onClick = e => {
     // Update the user input and reset the rest of the state
+
     this.setState({
       activeSuggestion: 0,
       filteredSuggestions: [],
       showSuggestions: false,
       userInput: e.currentTarget.innerText
     });
+
+    userSelection = e.currentTarget.innerText
+    debugger;
   };
 
   // Event fired when the user presses a key down
@@ -110,7 +114,7 @@ class Autocomplete extends Component {
     } = this;
 
     let suggestionsListComponent;
-    let userSelection = ""
+
 
     if (showSuggestions && userInput) {
       if (filteredSuggestions.length) {
@@ -121,10 +125,10 @@ class Autocomplete extends Component {
 
               // Flag the active suggestion with a class
               if (index === activeSuggestion) {
-              
+
                 className = "suggestion-active";
-                userSelection = suggestion
-                debugger;
+
+
               }
 
               return (
@@ -150,9 +154,6 @@ class Autocomplete extends Component {
         );
       }
     }
-
-
-
 
     return (
       <div>
