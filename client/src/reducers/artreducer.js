@@ -13,13 +13,13 @@ export default function manageArt(state = {
           ...state,
           artworks: []
         };
-      case "FILTER_ARTWORK":
-        const filteredArray = state.artworks.map(artwork => {
-          if (action.selectedCity === artwork.location) {
-            return artwork
-          }
-        })
-        return filteredArray;
+      case "SET_FILTER_CITY":
+        debugger; 
+        // const filteredArray = state.artworks.map(artwork => {
+        return {
+          ...state,
+          selectedCity: action.selectedCity
+        }
 
       default:
         return state;

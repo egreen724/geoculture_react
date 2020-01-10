@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Autocomplete from "../components/autocomplete";
-import Artworks from '../components/artworks'
+// import Artworks from '../components/artworks'
+import ArtCard from "../components/artCard.js"
 
 let cities = []
 
@@ -15,7 +16,7 @@ class ArtworkContainer extends Component {
     return (
       <div className="center">
         <Autocomplete suggestions={this.state.cities}/>
-        <Artworks />
+        <ArtCard />
       </div>
     )
   }

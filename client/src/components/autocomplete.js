@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { connect } from 'react-redux'
-import {filterArtwork} from '../actions/artActions'
+import {setFilterCity} from '../actions/artActions'
 import PropTypes from "prop-types";
 import '../App.css';
 
@@ -96,6 +96,7 @@ class Autocomplete extends Component {
 
 
   render() {
+
     const {
       onChange,
       onClick,
@@ -109,6 +110,7 @@ class Autocomplete extends Component {
     } = this;
 
     let suggestionsListComponent;
+    let userSelection = ""
 
     if (showSuggestions && userInput) {
       if (filteredSuggestions.length) {
@@ -119,7 +121,10 @@ class Autocomplete extends Component {
 
               // Flag the active suggestion with a class
               if (index === activeSuggestion) {
+              
                 className = "suggestion-active";
+                userSelection = suggestion
+                debugger;
               }
 
               return (
@@ -131,7 +136,6 @@ class Autocomplete extends Component {
                   >
                     {suggestion}
                   </li>
-
                 </div>
 
               );
@@ -161,14 +165,12 @@ class Autocomplete extends Component {
         />
         {suggestionsListComponent}
         <br></br>
-        <button onClick={() => this.props.filterArtwork("Test")}>Search</button>
+        <button onClick={() => this.props.setFilterCity(userSelection)}>Search</button>
       </div>
     );
   }
 }
 
-function mapStateToProps() {
 
-}
 
-export default connect(mapStateToProps, {filterArtwork})(Autocomplete);
+export default connect(null, {setFilterCity})(Autocomplete);

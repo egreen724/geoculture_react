@@ -17,15 +17,12 @@ class Artworks extends Component {
   render() {
     return (
       <div>
-        {this.renderArtworks()}
+
       </div>
     );
   }
 
-  componentDidMount() {
 
-    this.props.fetchArtworks()
-    }
 
 };
 
