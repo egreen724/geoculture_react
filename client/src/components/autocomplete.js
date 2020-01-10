@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from "react";
+import { connect } from 'react-redux'
+import {filterArtwork} from '../actions/artActions'
 import PropTypes from "prop-types";
 import '../App.css';
 
@@ -92,6 +94,7 @@ class Autocomplete extends Component {
     }
   };
 
+
   render() {
     const {
       onChange,
@@ -144,6 +147,9 @@ class Autocomplete extends Component {
       }
     }
 
+
+
+
     return (
       <div>
         <h2>Where to?</h2>
@@ -155,10 +161,14 @@ class Autocomplete extends Component {
         />
         {suggestionsListComponent}
         <br></br>
-        <button>Search</button>
+        <button onClick={() => this.props.filterArtwork("Test")}>Search</button>
       </div>
     );
   }
 }
 
-export default Autocomplete;
+function mapStateToProps() {
+
+}
+
+export default connect(mapStateToProps, {filterArtwork})(Autocomplete);

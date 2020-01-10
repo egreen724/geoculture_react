@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
 import ArtCard from "./artCard.js"
+import { connect } from 'react-redux'
+import {fetchArtworks} from "../actions/artActions.js"
 // import artworkService from "./services/ArtworkService.js"
 
-let artworks = []
 
-export default class Artworks extends Component {
-  state = {
-    artworks: []
-  }
+class Artworks extends Component {
 
   renderArtworks = () => {
-    if (this.state.artworks !== []) {
-      return <ArtCard art={this.state.artworks}/>
+    if (this.props.artworks !== []) {
+      return <ArtCard art={this.props.artworks}/>
     }
   }
 
@@ -25,14 +23,16 @@ export default class Artworks extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/api/artworks')
-      .then(response => response.json())
-      .then(data => {
-        artworks = data
-        this.setState({
-          artworks: artworks
-        })
-      })
+
+    this.props.fetchArtworks()
     }
 
 };
+
+const mapStateToProps = state => {
+  return ({
+    artworks: state.artworks
+  })
+}
+
+export default connect(mapStateToProps, {fetchArtworks})(Artworks);
