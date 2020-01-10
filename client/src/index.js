@@ -9,9 +9,7 @@ import thunk from 'redux-thunk'
 import * as serviceWorker from './serviceWorker';
 
 
-const composeEnhancer = window._REDUX_DEVTOOLS_EXTENSION_COMPOSE_ || compose;
-
-const store = createStore(manageArt, composeEnhancer(applyMiddleware(thunk)))
+const store = createStore(manageArt, window._REDUX_DEVTOOLS_EXTENSION_, applyMiddleware(thunk))
 
 ReactDOM.render(
   <Provider store={store}>
