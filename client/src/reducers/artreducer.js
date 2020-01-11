@@ -1,5 +1,5 @@
 export default function manageArt(state = {
-  artworks: [], selectedCity: "", selectedWork: [], favorites: []
+  artworks: [], selectedCity: "", favorites: []
 }, action){
 
   switch (action.type) {
@@ -18,12 +18,17 @@ export default function manageArt(state = {
           ...state,
           selectedCity: action.selectedCity
         }
-      case "SET_ART_DETAIL":
-      return {
-        ...state,
-        selectedWork: action.selectedWork
-      }
-    
+      // case "SET_ART_DETAIL":
+      // return {
+      //   ...state,
+      //   selectedWork: action.selectedWork
+      // }
+      case "ADD_TO_FAVORITES":
+        return {
+          ...state,
+          favorites.push(action.artwork)
+        }
+
 
       default:
         return state;

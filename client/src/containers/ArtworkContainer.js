@@ -12,22 +12,21 @@ class ArtworkContainer extends Component {
     cities: []
   }
 
-  renderCardsOrDetail = () => {
-    debugger;
-    if (this.props.selectedWork !== []) {
-      return <ArtDetail work={this.props.selectedWork}/>
-    } else {
-      return <ArtCards />
-    }
-  }
+  // renderCardsOrDetail = () => {
+  //   if (this.props.selectedWork !== []) {
+  //     return <ArtDetail work={this.props.selectedWork}/>
+  //   } else {
+  //     return <ArtCards />
+  //   }
+  //   debugger;
+  // }
 
-
+// {this.renderCardsOrDetail()}
   render() {
     return (
       <div className="center">
         <Autocomplete suggestions={this.state.cities}/>
-        {this.renderCardsOrDetail()}
-    
+        <ArtCards />
 
       </div>
     )

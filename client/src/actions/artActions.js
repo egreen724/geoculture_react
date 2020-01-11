@@ -19,3 +19,7 @@ export const setFilterCity = (selectedCity) => {
 export const setArtDetail = (selectedWork) => {
   return {type: "SET_ART_DETAIL", selectedWork: selectedWork}
 }
+
+export const addToFavorites = (artwork) => {
+  return {type: "ADD_TO_FAVORITES", artwork: artwork}
+}

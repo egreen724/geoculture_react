@@ -33,7 +33,7 @@ class ArtCards extends Component {
   }
 
   handleDetailClick = (work) => {
-  
+
     this.props.setArtDetail(work)
 
       return <div>
