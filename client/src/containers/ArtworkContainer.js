@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Autocomplete from "../components/autocomplete";
 // import Artworks from '../components/artworks'
-import ArtCard from "../components/artCard.js"
+import ArtCards from "../components/artCard.js"
 
 let cities = []
 
@@ -11,12 +11,12 @@ class ArtworkContainer extends Component {
     cities: []
   }
 
-// Use redux to send the location from autocomplete to Artworks as a prop (sibling components)
+
   render() {
     return (
       <div className="center">
         <Autocomplete suggestions={this.state.cities}/>
-        <ArtCard />
+        <ArtCards />
       </div>
     )
   }

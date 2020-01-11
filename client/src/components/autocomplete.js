@@ -64,7 +64,7 @@ class Autocomplete extends Component {
     });
 
     userSelection = e.currentTarget.innerText
-    debugger;
+
   };
 
   // Event fired when the user presses a key down

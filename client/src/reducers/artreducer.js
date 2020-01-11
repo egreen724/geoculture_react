@@ -14,7 +14,6 @@ export default function manageArt(state = {
           artworks: []
         };
       case "SET_FILTER_CITY":
-        debugger; 
         // const filteredArray = state.artworks.map(artwork => {
         return {
           ...state,
