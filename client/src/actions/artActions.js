@@ -15,3 +15,7 @@ export const fetchArtworks = () => {
 export const setFilterCity = (selectedCity) => {
   return {type: 'SET_FILTER_CITY', selectedCity: selectedCity}
 }
+
+export const setArtDetail = (selectedWork) => {
+  return {type: "SET_ART_DETAIL", selectedWork: selectedWork}
+}

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Autocomplete from "../components/autocomplete";
-// import Artworks from '../components/artworks'
 import ArtCards from "../components/artCard.js"
+import ArtDetail from "../components/artDetail.js"
 
 let cities = []
 
@@ -11,12 +12,23 @@ class ArtworkContainer extends Component {
     cities: []
   }
 
+  renderCardsOrDetail = () => {
+    debugger;
+    if (this.props.selectedWork !== []) {
+      return <ArtDetail work={this.props.selectedWork}/>
+    } else {
+      return <ArtCards />
+    }
+  }
+
 
   render() {
     return (
       <div className="center">
         <Autocomplete suggestions={this.state.cities}/>
-        <ArtCards />
+        {this.renderCardsOrDetail()}
+    
+
       </div>
     )
   }
@@ -36,4 +48,10 @@ class ArtworkContainer extends Component {
 
 }
 
-export default ArtworkContainer;
+const mapStateToProps = state => {
+  return ({
+    selectedWork: state.selectedWork
+  })
+}
+
+export default connect(mapStateToProps)(ArtworkContainer);

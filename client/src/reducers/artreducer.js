@@ -1,5 +1,5 @@
 export default function manageArt(state = {
-  artworks: [], selectedCity: "", favorites: []
+  artworks: [], selectedCity: "", selectedWork: [], favorites: []
 }, action){
 
   switch (action.type) {
@@ -14,11 +14,16 @@ export default function manageArt(state = {
           artworks: []
         };
       case "SET_FILTER_CITY":
-        // const filteredArray = state.artworks.map(artwork => {
         return {
           ...state,
           selectedCity: action.selectedCity
         }
+      case "SET_ART_DETAIL":
+      return {
+        ...state,
+        selectedWork: action.selectedWork
+      }
+    
 
       default:
         return state;

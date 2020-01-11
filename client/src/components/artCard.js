@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import {fetchArtworks} from "../actions/artActions.js"
+import {fetchArtworks, setArtDetail} from "../actions/artActions.js"
+import ArtDetail from "./artDetail.js"
 
 class ArtCards extends Component {
-
-
 
   renderArtworks = () => {
     let filteredArray = []
@@ -17,14 +16,14 @@ class ArtCards extends Component {
 
 
     if (filteredArray !== []) {
-      filteredArray.map((work, index) => {
+      return filteredArray.map((work, index) => {
           return <div key={index} className='container'>
             <img className="image" src={work.thumbnail_url}/>
             <div className='overlay'>
               <div className='textOverlay'>
                 {work.title}, {work.collecting_institution}
                 <br></br>
-                <a href='/{work.slug}'>Details</a>
+                <button onClick={() => this.handleDetailClick(work)}>Details</button>
                 <br></br>
                 <button> Add to Favorites </button>
               </div>
@@ -32,6 +31,18 @@ class ArtCards extends Component {
       })
     }
   }
+
+  handleDetailClick = (work) => {
+  
+    this.props.setArtDetail(work)
+
+      return <div>
+        <ArtDetail work={work}/>
+      </div>
+
+
+  }
+
 
 
   render() {
@@ -45,8 +56,6 @@ class ArtCards extends Component {
   componentDidMount() {
     this.props.fetchArtworks()
     }
-
-
 }
 
 const mapStateToProps = state => {
@@ -56,4 +65,4 @@ const mapStateToProps = state => {
   })
 }
 
-export default connect(mapStateToProps, {fetchArtworks})(ArtCards);
+export default connect(mapStateToProps, {fetchArtworks, setArtDetail})(ArtCards);
