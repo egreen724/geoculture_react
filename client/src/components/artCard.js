@@ -1,19 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { addToFavorites } from "../actions/artActions.js"
 
-const ArtCard = work => {
+class ArtCard extends Component {
 
+  handleFavoriteButton = () => {
+    this.props.addToFavorites(this.props.work)
+  }
+
+  render () {
     return <div className='container'>
-      <img className="image" src={work.work.thumbnail_url}/>
-      <div key={work.work.id} className='overlay'>
+      <img className="image" src={this.props.work.thumbnail_url}/>
+      <div key={this.props.work.id} className='overlay'>
         <div className='textOverlay'>
-          {work.work.title}, {work.work.collecting_institution}
+          {this.props.work.title}, {this.props.work.collecting_institution}
           <br></br>
-          <a href='/{work.work.slug}'>Details</a>
+          <button >Details</button>
           <br></br>
-          <button> Add to Favorites </button>
+          <button onClick={this.handleFavoriteButton}>Add to Favorites</button>
         </div>
       </div> </div>;
+  }
+
 }
+
 
 
   // handleDetailClick = (work) => {
@@ -26,7 +36,11 @@ const ArtCard = work => {
   //
   //
   // }
+  const mapStateToProps = state => {
+    return ({
+      favorites: state.favorites
+    })
+  }
 
 
-
-export default ArtCard;
+export default connect(mapStateToProps, {addToFavorites})(ArtCard) ;
