@@ -33,11 +33,13 @@ class Artworks extends Component {
     )
   }
 
+  componentDidMount(){
+    this.props.fetchArtworks();
+  }
+
 }
 
-componentDidMount() {
-  this.props.fetchArtworks()
-}
+
 
 const mapStateToProps = state => {
   return ({
