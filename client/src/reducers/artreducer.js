@@ -24,10 +24,10 @@ export default function manageArt(state = {
       //   selectedWork: action.selectedWork
       // }
       case "ADD_TO_FAVORITES":
-      debugger; 
+
         return {
           ...state,
-          favorites: action.artwork
+          favorites: [...state.favorites, action.artwork]
         }
 
 

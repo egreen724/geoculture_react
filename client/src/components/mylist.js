@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
+import ArtCard from "./artCard.js"
+import { connect } from 'react-redux'
 
 
 class MyList extends Component {
 
-  render() {
+  debugger;
+  renderFavorites = () => {
+    return this.props.favorites.map((work) => {
+       return <ArtCard work={work}/>
+   })
+  }
 
+  render() {
     return (
       <div>
-        <p> Eventually this will be my saved list! </p>
+        <h3>My Saved List:</h3>
+        {this.renderFavorites()}
       </div>
     )
   }
@@ -15,4 +24,10 @@ class MyList extends Component {
 
 }
 
-export default MyList;
+const mapStateToProps = state => {
+  return ({
+    favorites: state.favorites
+  })
+}
+
+export default connect(mapStateToProps)(MyList);

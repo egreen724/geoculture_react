@@ -12,16 +12,6 @@ class ArtworkContainer extends Component {
     cities: []
   }
 
-  // renderCardsOrDetail = () => {
-  //   if (this.props.selectedWork !== []) {
-  //     return <ArtDetail work={this.props.selectedWork}/>
-  //   } else {
-  //     return <ArtCards />
-  //   }
-  //   debugger;
-  // }
-
-// {this.renderCardsOrDetail()}
   render() {
     return (
       <div className="center">
