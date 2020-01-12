@@ -7,15 +7,23 @@ class MyList extends Component {
 
   debugger;
   renderFavorites = () => {
-    return this.props.favorites.map((work) => {
-       return <ArtCard work={work}/>
-   })
-  }
+    if (this.props.favorites !== []) {
+      return this.props.favorites.map((work) => {
+         return <div>
+           <h3>My Saved List:</h3>
+           <ArtCard work={work}/>
+         </div>
+    })
+  } else {
+      return <p>You have not added any favorites yet.</p>
+    }
+   }
+
 
   render() {
     return (
       <div>
-        <h3>My Saved List:</h3>
+
         {this.renderFavorites()}
       </div>
     )

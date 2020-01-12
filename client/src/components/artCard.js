@@ -8,6 +8,15 @@ class ArtCard extends Component {
     this.props.addToFavorites(this.props.work)
   }
 
+  buttonDisplay = () => {
+
+    if (this.props.work.favorite === false) {
+      return <button onClick={this.handleFavoriteButton}>Add to Favorites</button>
+    } else {
+      return <button>Remove from Favorites</button>
+    }
+  }
+
   render () {
     return <div className='container'>
       <img className="image" src={this.props.work.thumbnail_url}/>
@@ -17,7 +26,7 @@ class ArtCard extends Component {
           <br></br>
           <button >Details</button>
           <br></br>
-          <button onClick={this.handleFavoriteButton}>Add to Favorites</button>
+          {this.buttonDisplay()}
         </div>
       </div> </div>;
   }
