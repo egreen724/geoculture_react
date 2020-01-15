@@ -21,5 +21,22 @@ export const setArtDetail = (selectedWork) => {
 }
 
 export const addToFavorites = (artwork) => {
-  return {type: "ADD_TO_FAVORITES", artwork: artwork}
+  return (dispatch) => {
+
+    const favorite = {...artwork, favorite: true}
+
+    return fetch(`http://localhost:3001/api/artworks/${artwork.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({artwork: favorite})
+    })
+    .then(response => response.json())
+    .then(artwork => dispatch(addToFavoritesSuccess(artwork)))
+  }
+}
+
+export const addToFavoritesSuccess = (artwork) => {
+  return {type: "ADD_TO_FAVORITES_SUCESS", artwork: artwork}
 }

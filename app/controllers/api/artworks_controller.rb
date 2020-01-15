@@ -17,17 +17,20 @@ class Api::ArtworksController < ApplicationController
 
   def index
     @artworks = Artwork.all
-
     render json: @artworks
   end
 
-  # def update
-  #     if @list.update(list_params)
-  #       render json: @list
-  #     else
-  #       render json: @list.errors, status: :unprocessable_entity
-  #     end
-  #   end
+  def update
+    @artwork = Artwork.find(params[:id])
+
+      if @artwork.update(artwork_params)
+        render json: @artwork
+      else
+        render json: @artwork.errors, status: :unprocessable_entity
+      end
+
+
+    end
   #
   #   # DELETE /lists/1
   #   def destroy

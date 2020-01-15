@@ -23,7 +23,7 @@ export default function manageArt(state = {
       //   ...state,
       //   selectedWork: action.selectedWork
       // }
-      case "ADD_TO_FAVORITES":
+      case "ADD_TO_FAVORITES_SUCESS":
 
         return {
           ...state,
