@@ -10,7 +10,8 @@ class Artworks extends Component {
   renderArtworks = () => {
     let filteredArray = []
 
-    if (this.props.filterCity !== "") {
+    if (this.props.filterCity !== "" || undefined) {
+    
       filteredArray = this.props.artworks.filter(work => work.location === this.props.filterCity)
     } else if (this.props.artworks !== []){
       filteredArray = this.props.artworks
@@ -29,6 +30,7 @@ class Artworks extends Component {
     return (
       <div>
         {this.renderArtworks()}
+
       </div>
     )
   }

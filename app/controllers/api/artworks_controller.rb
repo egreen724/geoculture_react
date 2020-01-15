@@ -23,14 +23,12 @@ class Api::ArtworksController < ApplicationController
   def update
     @artwork = Artwork.find(params[:id])
 
-      if @artwork.update(artwork_params)
-        render json: @artwork
-      else
-        render json: @artwork.errors, status: :unprocessable_entity
-      end
-
-
+    if @artwork.update(artwork_params)
+      render json: @artwork
+    else
+      render json: @artwork.errors, status: :unprocessable_entity
     end
+  end
   #
   #   # DELETE /lists/1
   #   def destroy

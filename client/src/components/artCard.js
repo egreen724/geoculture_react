@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addToFavorites } from "../actions/artActions.js"
+import { addToFavorites, removeFromFavorites } from "../actions/artActions.js"
 
 class ArtCard extends Component {
 
@@ -8,12 +8,17 @@ class ArtCard extends Component {
     this.props.addToFavorites(this.props.work)
   }
 
+  handleRemoveButton = () => {
+    debugger; 
+    this.props.removeFromFavorites(this.props.work)
+  }
+
   buttonDisplay = () => {
 
     if (this.props.work.favorite === false) {
       return <button onClick={this.handleFavoriteButton}>Add to Favorites</button>
     } else {
-      return <button>Remove from Favorites</button>
+      return <button onClick={this.handleRemoveButton}>Remove from Favorites</button>
     }
   }
 
@@ -52,4 +57,4 @@ class ArtCard extends Component {
   }
 
 
-export default connect(mapStateToProps, {addToFavorites})(ArtCard) ;
+export default connect(mapStateToProps, {addToFavorites, removeFromFavorites})(ArtCard) ;

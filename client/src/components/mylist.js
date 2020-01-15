@@ -5,12 +5,11 @@ import { connect } from 'react-redux'
 
 class MyList extends Component {
 
-  debugger;
   renderFavorites = () => {
+
     if (this.props.favorites !== []) {
       return this.props.favorites.map((work) => {
          return <div>
-           <h3>My Saved List:</h3>
            <ArtCard work={work}/>
          </div>
     })
@@ -23,7 +22,6 @@ class MyList extends Component {
   render() {
     return (
       <div>
-
         {this.renderFavorites()}
       </div>
     )
@@ -33,8 +31,9 @@ class MyList extends Component {
 }
 
 const mapStateToProps = state => {
+
   return ({
-    favorites: state.favorites
+    favorites: state.artworks.filter(artwork => artwork.favorite === true )
   })
 }
 
