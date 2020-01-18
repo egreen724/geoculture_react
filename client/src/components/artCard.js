@@ -9,7 +9,7 @@ class ArtCard extends Component {
   }
 
   handleRemoveButton = () => {
-    debugger; 
+    debugger;
     this.props.removeFromFavorites(this.props.work)
   }
 
@@ -50,11 +50,7 @@ class ArtCard extends Component {
   //
   //
   // }
-  const mapStateToProps = state => {
-    return ({
-      favorites: state.favorites
-    })
-  }
 
 
-export default connect(mapStateToProps, {addToFavorites, removeFromFavorites})(ArtCard) ;
+
+export default connect(null, {addToFavorites, removeFromFavorites})(ArtCard) ;

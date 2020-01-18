@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
-
+import { connect } from 'react-redux'
 
 const link = {
   width: '50px',
@@ -39,12 +39,18 @@ class Menu extends Component {
             activeStyle={{
               color: 'grey'
             }}
-          >My List</NavLink>
+          >My List ({this.props.favorites.length})</NavLink>
         </div>
 
     )
   }
-
 }
 
-export default Menu;
+const mapStateToProps = state => {
+
+  return ({
+    favorites: state.artworks.filter(artwork => artwork.favorite === true )
+  })
+}
+
+export default connect(mapStateToProps)(Menu);
