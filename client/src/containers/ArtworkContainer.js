@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Autocomplete from "../components/autocomplete";
 import Artworks from "../components/artworks.js"
-import ArtDetail from "../components/artDetail.js"
 
 let cities = []
 
@@ -16,6 +15,7 @@ class ArtworkContainer extends Component {
     return (
       <div className="center">
         <Autocomplete suggestions={this.state.cities}/>
+        <br></br>
         <Artworks />
 
       </div>

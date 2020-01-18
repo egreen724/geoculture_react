@@ -8,12 +8,7 @@ export default function manageArt(state = {
           ...state,
           artworks: action.artworks
         };
-      // case "SET_FAVORITES":
-      // let favArr = state.artworks.filter(artwork => artwork.favorite === true)
-      //   return {
-      //     ...state,
-      //     favorites: favArr
-      //   };
+      
       case "SET_FILTER_CITY":
         return {
           ...state,
