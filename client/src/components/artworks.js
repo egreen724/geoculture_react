@@ -12,7 +12,6 @@ class Artworks extends Component {
     let filteredArray = []
 
     if (this.props.filterCity !== "" || undefined) {
-
       filteredArray = this.props.artworks.filter(work => work.location === this.props.filterCity)
     } else if (this.props.artworks !== []){
       filteredArray = this.props.artworks
@@ -51,4 +50,10 @@ const mapStateToProps = state => {
   })
 }
 
-export default connect(mapStateToProps, {fetchArtworks, addToFavorites, removeFromFavorites})(Artworks);
+const mapDispatchToProps = dispatch => ({
+  fetchArtworks: () => dispatch(fetchArtworks()),
+  addToFavorites: artwork => dispatch(addToFavorites(artwork)),
+  removeFromFavorites: artwork => dispatch(removeFromFavorites(artwork))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Artworks);

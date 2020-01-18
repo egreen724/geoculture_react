@@ -1,24 +1,21 @@
 export default function manageArt(state = {
-  artworks: [], selectedCity: ""
+  artworks: [], favorites: [], selectedCity: ""
 }, action){
 
   switch (action.type) {
       case "SET_ARTWORKS":
         return {
           ...state,
-          artworks: action.artworks
+          artworks: action.artworks,
+          favorites: action.artworks.filter(artwork => artwork.favorite === true )
         };
-      
+
       case "SET_FILTER_CITY":
         return {
           ...state,
           selectedCity: action.selectedCity
         }
-      // case "SET_ART_DETAIL":
-      // return {
-      //   ...state,
-      //   selectedWork: action.selectedWork
-      // }
+
       case "ADD_TO_FAVORITES_SUCCESS":
 
         const newArtworkArr = state.artworks.map(artwork => {
@@ -30,7 +27,10 @@ export default function manageArt(state = {
             return artwork
           }})
 
-        return newArtworkArr;
+        return {
+          ...state,
+          favorites: newArtworkArr
+        };
 
       case "REMOVE_SUCCESS":
         const updatedArray = state.artworks.map(artwork => {
@@ -42,7 +42,10 @@ export default function manageArt(state = {
             return artwork
           }})
 
-        return updatedArray;
+          return {
+            ...state,
+            favorites: updatedArray
+          };
 
       default:
         return state;

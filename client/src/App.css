@@ -119,3 +119,18 @@ input {
   margin-right: auto;
   width: 300px;
 }
+
+.detail_info {
+  float: right;
+  padding: 5px;
+}
+
+.detail_image {
+  float: left;
+}
+
+.detail {
+  margin: auto;
+  width: 80%;
+  display: inline-block;
+}

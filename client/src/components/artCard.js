@@ -8,7 +8,6 @@ class ArtCard extends Component {
     if (this.props.work.favorite === false) {
       return <button onClick={() => this.props.favorite(this.props.work)}>Add to Favorites</button>
     } else {
-
       return <button onClick={() => this.props.remove(this.props.work)}>Remove from Favorites</button>
     }
   }

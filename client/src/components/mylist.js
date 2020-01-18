@@ -33,7 +33,7 @@ class MyList extends Component {
 const mapStateToProps = state => {
 
   return ({
-    favorites: state.artworks.filter(artwork => artwork.favorite === true )
+    favorites: state.favorites
   })
 }
 
