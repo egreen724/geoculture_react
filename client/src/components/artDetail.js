@@ -13,7 +13,7 @@ class ArtDetail extends Component {
     if (this.state.work.favorite === false) {
       return <button onClick={() => this.props.addToFavorites(this.state.work)}>Add to Favorites</button>
     } else {
-      return <button onClick={() => this.state.removeFromFavorites(this.state.work)}>Remove from Favorites</button>
+      return <button onClick={() => this.props.removeFromFavorites(this.state.work)}>Remove from Favorites</button>
     }
   }
 
@@ -50,4 +50,9 @@ class ArtDetail extends Component {
 
 }
 
-export default connect(null, {addToFavorites, removeFromFavorites})(ArtDetail);
+const mapDispatchToProps = dispatch => ({
+  addToFavorites: artwork => dispatch(addToFavorites(artwork)),
+  removeFromFavorites: artwork => dispatch(removeFromFavorites(artwork))
+})
+
+export default connect()(ArtDetail);

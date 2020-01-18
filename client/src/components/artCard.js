@@ -6,9 +6,9 @@ class ArtCard extends Component {
   buttonDisplay = () => {
 
     if (this.props.work.favorite === false) {
-      return <button onClick={() => this.props.favorite(this.props.work)}>Add to Favorites</button>
+      return <button className="button" onClick={() => this.props.favorite(this.props.work)}>Add to Favorites</button>
     } else {
-      return <button onClick={() => this.props.remove(this.props.work)}>Remove from Favorites</button>
+      return <button className="button" onClick={() => this.props.remove(this.props.work)}>Remove from Favorites</button>
     }
   }
 
@@ -19,7 +19,7 @@ class ArtCard extends Component {
         <div className='textOverlay'>
           {this.props.work.title}, {this.props.work.collecting_institution}
           <br></br>
-          <Link to={`/artworks/${this.props.work.id}`} className="btn btn-primary">
+          <Link to={`/artworks/${this.props.work.id}`} className="button">
            View Details
          </Link>
           <br></br>
