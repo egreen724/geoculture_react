@@ -39,7 +39,7 @@ class Menu extends Component {
             activeStyle={{
               color: 'grey'
             }}
-          >My List ({this.props.favorites.length})</NavLink>
+          >My Favorites ({this.props.favorites.length})</NavLink>
         </div>
 
     )

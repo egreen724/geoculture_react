@@ -1,24 +1,13 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { addToFavorites, removeFromFavorites } from "../actions/artActions.js"
 
 class ArtCard extends Component {
-
-  handleFavoriteButton = () => {
-    this.props.addToFavorites(this.props.work)
-  }
-
-  handleRemoveButton = () => {
-    debugger;
-    this.props.removeFromFavorites(this.props.work)
-  }
 
   buttonDisplay = () => {
 
     if (this.props.work.favorite === false) {
-      return <button onClick={this.handleFavoriteButton}>Add to Favorites</button>
+      return <button onClick={() => this.props.favorite(this.props.work)}>Add to Favorites</button>
     } else {
-      return <button onClick={this.handleRemoveButton}>Remove from Favorites</button>
+      return <button onClick={() => this.props.remove(this.props.work)}>Remove from Favorites</button>
     }
   }
 
@@ -53,4 +42,4 @@ class ArtCard extends Component {
 
 
 
-export default connect(null, {addToFavorites, removeFromFavorites})(ArtCard) ;
+export default ArtCard ;

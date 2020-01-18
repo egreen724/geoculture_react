@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import ArtCard from "./artCard.js"
 import { connect } from 'react-redux'
-import {fetchArtworks} from "../actions/artActions.js"
+import {fetchArtworks, addToFavorites, removeFromFavorites } from "../actions/artActions.js"
+
 // import artworkService from "./services/ArtworkService.js"
 
 
@@ -11,7 +12,7 @@ class Artworks extends Component {
     let filteredArray = []
 
     if (this.props.filterCity !== "" || undefined) {
-    
+
       filteredArray = this.props.artworks.filter(work => work.location === this.props.filterCity)
     } else if (this.props.artworks !== []){
       filteredArray = this.props.artworks
@@ -20,7 +21,7 @@ class Artworks extends Component {
 
     if (filteredArray !== []) {
        return filteredArray.map((work) => {
-          return <ArtCard work={work}/>
+          return <ArtCard work={work} favorite={this.props.addToFavorites} remove={this.props.removeFromFavorites} />
       })
     }
 
@@ -50,4 +51,4 @@ const mapStateToProps = state => {
   })
 }
 
-export default connect(mapStateToProps, {fetchArtworks})(Artworks);
+export default connect(mapStateToProps, {fetchArtworks, addToFavorites, removeFromFavorites})(Artworks);

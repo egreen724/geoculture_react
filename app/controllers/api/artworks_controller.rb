@@ -29,19 +29,10 @@ class Api::ArtworksController < ApplicationController
       render json: @artwork.errors, status: :unprocessable_entity
     end
   end
-  #
-  #   # DELETE /lists/1
-  #   def destroy
-  #     @list.destroy
-  #     if @list.destroy
-  #       head :no_content, status: :ok
-  #     else
-  #       render json: @list.errors, status: :unprocessable_entity
-  #     end
-  #   end
+
 
   def artsy
-    resp = Faraday.get'https://api.artsy.net/api/artworks?size=10%0A' do |req|
+    resp = Faraday.get'https://api.artsy.net/api/artworks?size=50%0A' do |req|
       req.headers['X-Access-Token'] = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NDdjZDQxNDcyNjE2OTc4ZmE2YjExMDAiLCJzYWx0X2hhc2giOiJjOGZkMGM3OWNiMzU5MWE1NTJmMDA0ZmZmZTJjYmVmNyIsInJvbGVzIjoidXNlciIsInBhcnRuZXJfaWRzIjpbXSwiZXhwIjoyMzYzNTUyNzYxLCJpYXQiOjE1NzQ1NDc5NjEsImF1ZCI6IjUzZmYxYmNjNzc2ZjcyNDBkOTAwMDAwMCIsImlzcyI6IkdyYXZpdHkiLCJqdGkiOiI1ZGQ5YjFmOTc1MmI5ZTAwMTEwODI4N2UifQ.1aeR1Dmeum1ZVQqaHI5tcsrk1mbjINzrpuWgPGY1Zco'
     end
     resp_body = JSON.parse(resp.body)
@@ -57,7 +48,7 @@ class Api::ArtworksController < ApplicationController
         city = "Unknown"
       end
 
-      Artwork.create(
+      new_work = Artwork.new(
         title: artwork["title"],
         medium: artwork["medium"],
         year: artwork["date"],
@@ -68,6 +59,10 @@ class Api::ArtworksController < ApplicationController
         slug: artwork["id"],
         artsy_id: artwork["slug"]
       )
+
+      if new_work.valid?
+        new_work.save
+      end
 
     end
   end
