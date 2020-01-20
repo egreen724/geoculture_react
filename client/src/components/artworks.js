@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ArtCard from "./artCard.js"
 import { connect } from 'react-redux'
-import {fetchArtworks, addToFavorites, removeFromFavorites } from "../actions/artActions.js"
+import {fetchArtworks, clearFilterCity, addToFavorites, removeFromFavorites } from "../actions/artActions.js"
 
 // import artworkService from "./services/ArtworkService.js"
 
@@ -17,7 +17,6 @@ class Artworks extends Component {
       filteredArray = this.props.artworks
     }
 
-
     if (filteredArray !== []) {
        return filteredArray.map((work) => {
           return <ArtCard work={work}  />
@@ -27,11 +26,20 @@ class Artworks extends Component {
 
   }
 
+  showCityFilter = () => {
+    if (this.props.filterCity !== "") {
+      return <div className="filter">
+        <button onClick={() => this.props.clearFilterCity()}>X</button>
+        {this.props.filterCity}
+      </div>
+    }
+  }
+
   render() {
     return (
       <div>
+        {this.showCityFilter()}
         {this.renderArtworks()}
-
       </div>
     )
   }
@@ -53,6 +61,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   fetchArtworks: () => dispatch(fetchArtworks()),
+  clearFilterCity: () => dispatch(clearFilterCity())
   // addToFavorites: artwork => dispatch(addToFavorites(artwork)),
   // removeFromFavorites: artwork => dispatch(removeFromFavorites(artwork))
 })

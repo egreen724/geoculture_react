@@ -19,6 +19,12 @@
   color: #09d3ac;
 }
 
+.about {
+  margin: auto;
+  width: 75%;
+  text-align: left;
+}
+
 input {
   border: 1px solid #999;
   padding: 0.5rem;
@@ -145,5 +151,16 @@ input {
   border-right: 1px solid #333333;
   border-bottom: 1px solid #333333;
   border-left: 1px solid #CCCCCC;
-  border-radius: 15px; 
+  border-radius: 15px;
+}
+
+.filter {
+  font: bold 11px Arial;
+  width: 100px; 
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
 }

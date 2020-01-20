@@ -4,7 +4,7 @@ import HeadingContainer from './containers/HeadingContainer'
 import ArtworkContainer from './containers/ArtworkContainer'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import About from './components/about.js'
-import MyList from './components/mylist.js'
+import MyList from './containers/mylistContainer.js'
 import artDetail from './components/artDetail.js'
 
 

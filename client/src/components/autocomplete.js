@@ -125,10 +125,7 @@ class Autocomplete extends Component {
 
               // Flag the active suggestion with a class
               if (index === activeSuggestion) {
-
                 className = "suggestion-active";
-
-
               }
 
               return (

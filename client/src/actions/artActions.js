@@ -16,6 +16,10 @@ export const setFilterCity = (selectedCity) => {
   return {type: 'SET_FILTER_CITY', selectedCity: selectedCity}
 }
 
+export const clearFilterCity = () => {
+  return {type: 'CLEAR_FILTER_CITY', selectedCity: ""}
+}
+
 export const addToFavorites = (artwork) => {
   return (dispatch) => {
 

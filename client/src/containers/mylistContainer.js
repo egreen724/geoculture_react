@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ArtCard from "./artCard.js"
+import ArtCard from "../components/artCard.js"
 import { connect } from 'react-redux'
 
 

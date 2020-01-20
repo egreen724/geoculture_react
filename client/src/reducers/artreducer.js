@@ -16,6 +16,12 @@ export default function manageArt(state = {
           selectedCity: action.selectedCity
         }
 
+      case "CLEAR_FILTER_CITY":
+        return {
+          ...state,
+          selectedCity: ""
+        }
+
       case "ADD_TO_FAVORITES_SUCCESS":
 
         // const newArtworkArr = state.artworks.map(artwork => {
