@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
-import {addToFavorites, removeFromFavorites } from "../actions/artActions.js"
+import {addToFavorites, removeFromFavorites} from "../actions/artActions.js"
 
 class ArtCard extends Component {
 

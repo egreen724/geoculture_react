@@ -21,7 +21,8 @@ class MyList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="ArtworkContainer center">
+        <p>My Favorites:</p>
         {this.renderFavorites()}
       </div>
     )

@@ -37,7 +37,7 @@ class Artworks extends Component {
 
   render() {
     return (
-      <div>
+      <div className="ArtworkContainer">
         {this.showCityFilter()}
         {this.renderArtworks()}
       </div>
