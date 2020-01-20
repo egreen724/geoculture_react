@@ -27,11 +27,9 @@ class MyList extends Component {
     )
   }
 
-
 }
 
 const mapStateToProps = state => {
-
   return ({
     favorites: state.favorites
   })

@@ -20,7 +20,8 @@ class Artworks extends Component {
 
     if (filteredArray !== []) {
        return filteredArray.map((work) => {
-          return <ArtCard work={work} favorite={this.props.addToFavorites} remove={this.props.removeFromFavorites} />
+          return <ArtCard work={work}  />
+          // return <ArtCard work={work} favorite={this.props.addToFavorites} remove={this.props.removeFromFavorites} />
       })
     }
 
@@ -52,8 +53,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   fetchArtworks: () => dispatch(fetchArtworks()),
-  addToFavorites: artwork => dispatch(addToFavorites(artwork)),
-  removeFromFavorites: artwork => dispatch(removeFromFavorites(artwork))
+  // addToFavorites: artwork => dispatch(addToFavorites(artwork)),
+  // removeFromFavorites: artwork => dispatch(removeFromFavorites(artwork))
 })
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Artworks);

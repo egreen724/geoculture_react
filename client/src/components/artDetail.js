@@ -55,4 +55,4 @@ const mapDispatchToProps = dispatch => ({
   removeFromFavorites: artwork => dispatch(removeFromFavorites(artwork))
 })
 
-export default connect()(ArtDetail);
+export default connect(null, mapDispatchToProps)(ArtDetail);
