@@ -119,12 +119,12 @@ input {
   width: 90%;
 }
 
-/* .ArtworkContainer {
+.ArtworkContainer {
   margin: auto;
   display: inline-block;
-} */
+}
 
-
+/*
 .ArtworkContainer {
   line-height: 0;
 
@@ -163,7 +163,7 @@ input {
   -webkit-column-count: 1;
   column-count:         1;
   }
-}
+} */
 
 .logoStyle = {
   height: auto;
