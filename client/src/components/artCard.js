@@ -19,7 +19,7 @@ class ArtCard extends Component {
       <img className="image" src={this.props.work.thumbnail_url}/>
       <div  className='overlay'>
         <div className='textOverlay'>
-          {this.props.work.title}, {this.props.work.collecting_institution}
+          <p>{this.props.work.title}, {this.props.work.collecting_institution} </p>
           <br></br>
           <Link to={`/artworks/${this.props.work.id}`} className="button">
            View Details
