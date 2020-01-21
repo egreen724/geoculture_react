@@ -34,13 +34,12 @@ export default function manageArt(state = {
               } else {
                 return artwork
               }
-              debugger;
             })
           } else {
-            const newWork = Object.assign({}, action.artwork)
-            newWork.favorite = true
-            newFavoritesArray.push(newWork)
-            return newFavoritesArray
+            // const newWork = Object.assign({}, action.artwork)
+            // newWork.favorite = true
+            newFavoritesArray.push(action.artwork)
+            // return newFavoritesArray
           }
 
         return {

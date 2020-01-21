@@ -7,22 +7,20 @@ class MyList extends Component {
 
   renderFavorites = () => {
 
-    if (this.props.favorites !== []) {
-      return this.props.favorites.map((work) => {
-         return <div>
+    if (this.props.favorites.length > 0) {
+        return this.props.favorites.map((work) => {
+         return <div key={work.id}>
            <ArtCard work={work}/>
          </div>
-    })
-  } else {
-      return <p>You have not added any favorites yet.</p>
-    }
+    })} else {
+        return <p>You have not added any favorites yet.</p>
+      }
    }
 
 
   render() {
     return (
       <div className="ArtworkContainer center">
-        <p>My Favorites:</p>
         {this.renderFavorites()}
       </div>
     )

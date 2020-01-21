@@ -15,7 +15,6 @@ const link = {
 class Menu extends Component {
 
   render() {
-    debugger; 
     return (
 
         <div>

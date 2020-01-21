@@ -24,6 +24,8 @@ class Artworks extends Component {
       })
     }
 
+    return filteredArray
+
   }
 
   showCityFilter = () => {
