@@ -67,6 +67,8 @@ class Api::ArtworksController < ApplicationController
     end
   end
 
+  ## Seed database through the Artsy API Rails C; Copy the artsy method into the terminal (getting an error above 50 works as of Jan 21)
+
   # componentDidMount() {
   #   fetch('https://api.artsy.net/api/artworks?size=10%0A', {
   #     'method': 'GET',
