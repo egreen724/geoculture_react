@@ -31,9 +31,9 @@ Future additions: Currently, GeoCulture is built with only one model (Artworks) 
 
 ## Illustrations
 
-* Planning and Wireframes:
+* Homepage Screenshot:
+![Homepage Screenshot](https://i.imgur.com/DKotuE8.png)
+
+* Planning Process and Wireframes:
 ![Planning](https://i.imgur.com/ZISHwb1.jpg)
 ![Wireframes](https://i.imgur.com/z9OXqKH.png)
-
-* Homepage Screenshot
-![Homepage Screenshot](https://i.imgur.com/DKotuE8.png)

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ArtCard from "./artCard.js"
 import { connect } from 'react-redux'
-import {fetchArtworks, clearFilterCity, addToFavorites, removeFromFavorites } from "../actions/artActions.js"
+import {fetchArtworks, clearFilterCity } from "../actions/artActions.js"
 
 // import artworkService from "./services/ArtworkService.js"
 

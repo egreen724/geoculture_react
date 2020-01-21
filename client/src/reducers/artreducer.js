@@ -22,36 +22,32 @@ export default function manageArt(state = {
           selectedCity: ""
         }
 
-      case "ADD_TO_FAVORITES_SUCCESS":
+      case "CHANGE_SUCCESS":
+        let newFavoritesArray = state.favorites
 
-        // const newArtworkArr = state.artworks.map(artwork => {
-        //   if (action.artwork.id === artwork.id) {
-        //     const newWork = Object.assign({}, artwork)
-        //     newWork.favorite = true
-        //     return newWork
-        //   } else {
-        //     return artwork
-        //   }})
+          if (action.artwork.favorite === false) {
+            newFavoritesArray = state.favorites.map(artwork => {
+              if (action.artwork.id === artwork.id) {
+                const newWork = Object.assign({}, artwork)
+                newWork.favorite = false
+                return newWork
+              } else {
+                return artwork
+              }
+              debugger;
+            })
+          } else {
+            const newWork = Object.assign({}, action.artwork)
+            newWork.favorite = true
+            newFavoritesArray.push(newWork)
+            return newFavoritesArray
+          }
 
         return {
           ...state,
-          favorites: state.artworks.filter(artwork => artwork.favorite === true )
+          favorites: newFavoritesArray.filter(artwork => artwork.favorite === true )
         };
 
-      case "REMOVE_SUCCESS":
-        // const updatedArray = state.artworks.map(artwork => {
-        //   if (action.artwork.id === artwork.id) {
-        //     const newWork = Object.assign({}, artwork)
-        //     newWork.favorite = false
-        //     return newWork
-        //   } else {
-        //     return artwork
-        //   }})
-
-          return {
-            ...state,
-            favorites: state.artworks.filter(artwork => artwork.favorite === true )
-          };
 
       default:
         return state;

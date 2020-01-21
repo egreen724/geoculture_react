@@ -15,9 +15,9 @@ class ArtCard extends Component {
   }
 
   render () {
-    return <div className='container'>
+    return <div className='container' key={this.props.work.id}>
       <img className="image" src={this.props.work.thumbnail_url}/>
-      <div key={this.props.work.id} className='overlay'>
+      <div  className='overlay'>
         <div className='textOverlay'>
           {this.props.work.title}, {this.props.work.collecting_institution}
           <br></br>

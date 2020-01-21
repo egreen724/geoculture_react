@@ -1,3 +1,4 @@
+// Art Actions
 
 export const setArtworks = artworks => {
   return {type: "SET_ARTWORKS", artworks: artworks}
@@ -11,6 +12,7 @@ export const fetchArtworks = () => {
       }
   }
 
+// Filter Actions
 
 export const setFilterCity = (selectedCity) => {
   return {type: 'SET_FILTER_CITY', selectedCity: selectedCity}
@@ -19,6 +21,8 @@ export const setFilterCity = (selectedCity) => {
 export const clearFilterCity = () => {
   return {type: 'CLEAR_FILTER_CITY', selectedCity: ""}
 }
+
+// Favorite Actions
 
 export const addToFavorites = (artwork) => {
   return (dispatch) => {
@@ -33,12 +37,12 @@ export const addToFavorites = (artwork) => {
       body: JSON.stringify({artwork: favorite})
     })
     .then(response => response.json())
-    .then(artwork => dispatch(addToFavoritesSuccess(artwork)))
+    .then(artwork => dispatch(changeSuccess(artwork)))
   }
 }
 
-export const addToFavoritesSuccess = (artwork) => {
-  return {type: "ADD_TO_FAVORITES_SUCCESS", artwork: artwork}
+export const changeSuccess = (artwork) => {
+  return {type: "CHANGE_SUCCESS", artwork: artwork}
 }
 
 export const removeFromFavorites = (artwork) => {
@@ -54,10 +58,6 @@ export const removeFromFavorites = (artwork) => {
       body: JSON.stringify({artwork: favorite})
     })
     .then(response => response.json())
-    .then(artwork => dispatch(removeSuccess(artwork)))
+    .then(artwork => dispatch(changeSuccess(artwork)))
   }
-}
-
-export const removeSuccess = (artwork) => {
-  return {type: "REMOVE_SUCESS", artwork: artwork}
 }

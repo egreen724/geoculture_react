@@ -15,6 +15,7 @@ const link = {
 class Menu extends Component {
 
   render() {
+    debugger; 
     return (
 
         <div>
@@ -49,7 +50,7 @@ class Menu extends Component {
 const mapStateToProps = state => {
 
   return ({
-    favorites: state.artworks.filter(artwork => artwork.favorite === true )
+    favorites: state.favorites
   })
 }
 
