@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import Autocomplete from "../components/autocomplete";
 import Artworks from "../components/artworks.js"
 
@@ -37,10 +36,4 @@ class ArtworkContainer extends Component {
 
 }
 
-const mapStateToProps = state => {
-  return ({
-    selectedWork: state.selectedWork
-  })
-}
-
-export default connect(mapStateToProps)(ArtworkContainer);
+export default ArtworkContainer;
