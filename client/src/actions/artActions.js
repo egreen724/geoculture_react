@@ -5,11 +5,16 @@ export const setArtworks = artworks => {
 }
 
 export const fetchArtworks = () => {
+  console.log('c')
   return (dispatch) => {
     return fetch('http://localhost:3001/api/artworks')
       .then(response => response.json())
-      .then(artworks => dispatch(setArtworks(artworks)))
-      }
+      .then(artworks => {
+        console.log('d')
+        dispatch(setArtworks(artworks))
+      })
+    }
+    console.log('e')
   }
 
 // Filter Actions

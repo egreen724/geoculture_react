@@ -5,6 +5,10 @@ import {addToFavorites, removeFromFavorites} from "../actions/artActions.js"
 
 class ArtCard extends Component {
 
+  state = {
+    likes: 0
+  }
+
   buttonDisplay = () => {
 
     if (this.props.work.favorite === false) {
@@ -14,11 +18,18 @@ class ArtCard extends Component {
     }
   }
 
+  handleClick = (event) => {
+    this.setState((prevState) => {
+      return {likes: prevState.likes + 1}
+    })
+  }
+
   render () {
     return <div className='container' key={this.props.work.id}>
       <img className="image" src={this.props.work.thumbnail_url}/>
       <div  className='overlay'>
         <div className='textOverlay'>
+          {this.state.likes}
           <p>{this.props.work.title} </p>
 
           <Link to={`/artworks/${this.props.work.id}`} className="button">
@@ -26,6 +37,7 @@ class ArtCard extends Component {
          </Link>
           <br></br>
           {this.buttonDisplay()}
+          <button onClick={this.handleClick}>Like</button>
         </div>
       </div> </div>;
   }

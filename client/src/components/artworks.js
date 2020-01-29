@@ -50,7 +50,9 @@ class Artworks extends Component {
   }
 
   componentDidMount(){
+    console.log('a')
     this.props.fetchArtworks();
+    console.log('b')
   }
 
 }
