@@ -119,29 +119,30 @@ class Autocomplete extends Component {
     if (showSuggestions && userInput) {
       if (filteredSuggestions.length) {
         suggestionsListComponent = (
-          <ul class="suggestions">
-            {filteredSuggestions.map((suggestion, index) => {
-              let className;
+            <ul class="suggestions">
+              {filteredSuggestions.map((suggestion, index) => {
+                let className;
 
-              // Flag the active suggestion with a class
-              if (index === activeSuggestion) {
-                className = "suggestion-active";
-              }
+                // Flag the active suggestion with a class
+                if (index === activeSuggestion) {
+                  className = "suggestion-active";
+                }
 
-              return (
-                <div>
-                  <li
-                    className={className}
-                    key={suggestion}
-                    onClick={onClick}
-                  >
-                    {suggestion}
-                  </li>
-                </div>
+                return (
+                  <div >
+                    <li
+                      className={className}
+                      key={suggestion}
+                      onClick={onClick}
+                    >
+                      {suggestion}
+                    </li>
+                  </div>
 
-              );
-            })}
-          </ul>
+                );
+              })}
+            </ul>
+
         );
       } else {
         suggestionsListComponent = (

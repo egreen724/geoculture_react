@@ -32,7 +32,7 @@ class Api::ArtworksController < ApplicationController
 
 
   def artsy
-    resp = Faraday.get'https://api.artsy.net/api/artworks?size=50%0A' do |req|
+    resp = Faraday.get'https://api.artsy.net/api/artworks' do |req|
       req.headers['X-Access-Token'] = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NDdjZDQxNDcyNjE2OTc4ZmE2YjExMDAiLCJzYWx0X2hhc2giOiJjOGZkMGM3OWNiMzU5MWE1NTJmMDA0ZmZmZTJjYmVmNyIsInJvbGVzIjoidXNlciIsInBhcnRuZXJfaWRzIjpbXSwiZXhwIjoyMzYzNTUyNzYxLCJpYXQiOjE1NzQ1NDc5NjEsImF1ZCI6IjUzZmYxYmNjNzc2ZjcyNDBkOTAwMDAwMCIsImlzcyI6IkdyYXZpdHkiLCJqdGkiOiI1ZGQ5YjFmOTc1MmI5ZTAwMTEwODI4N2UifQ.1aeR1Dmeum1ZVQqaHI5tcsrk1mbjINzrpuWgPGY1Zco'
     end
     resp_body = JSON.parse(resp.body)
@@ -67,7 +67,6 @@ class Api::ArtworksController < ApplicationController
     end
   end
 
-  ## Seed database through the Artsy API Rails C; Copy the artsy method into the terminal (getting an error above 50 works as of Jan 21)
 
   # componentDidMount() {
   #   fetch('https://api.artsy.net/api/artworks?size=10%0A', {

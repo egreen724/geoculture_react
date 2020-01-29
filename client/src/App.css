@@ -58,6 +58,7 @@ input {
   color: black;
   cursor: pointer;
   font-weight: 700;
+  justify-content: center;
 }
 
 .suggestions li:not(:last-of-type) {
