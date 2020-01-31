@@ -12,6 +12,32 @@
 
 ActiveRecord::Schema.define(version: 2020_01_04_194624) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string "name"
+    t.float "distance"
+    t.string "street_address"
+    t.string "city"
+    t.string "state"
+    t.integer "zip_code"
+    t.string "category"
+    t.integer "difficulty_rating"
+    t.boolean "parking"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "creator_id"
+    t.index ["creator_id"], name: "index_activities_on_creator_id"
+  end
+
+  create_table "activity_keywords", force: :cascade do |t|
+    t.integer "activity_id"
+    t.integer "keyword_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "artworks", force: :cascade do |t|
     t.string "title"
     t.string "artist"
@@ -24,6 +50,35 @@ ActiveRecord::Schema.define(version: 2020_01_04_194624) do
     t.boolean "favorite", default: false
     t.string "slug"
     t.string "artsy_id"
+  end
+
+  create_table "keywords", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "activity_id"
+    t.string "comment"
+    t.date "date"
+    t.integer "time_ellapsed"
+    t.boolean "taken"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.string "bio"
+    t.integer "age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "google_token"
+    t.string "google_refresh_token"
   end
 
 end
